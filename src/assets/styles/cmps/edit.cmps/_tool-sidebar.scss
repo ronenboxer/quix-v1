@@ -1,0 +1,78 @@
+.wap-edit-page {
+
+    .page-container {
+
+        .wap-edit-page {
+
+            &__tool-sidebar {
+                width: $edit-tool-sidebar-width;
+                background-color: #fff;
+                // box-shadow: rgba(0, 0, 0, 0.35) 10px 0 15px -10px;
+                z-index: 40;
+                
+                .el-menu{
+                    box-shadow: 0 1px 5px 0 rgb(0 0 0 / 12%), 0 2px 10px 0 rgb(0 0 0 / 8%), 0 1px 20px 0 rgb(0 0 0 / 8%);
+                    z-index: 42;
+                    background-color: #fff;
+                    height: calc(100vh - $header-height);
+                    overflow-y: auto;
+                    border-inline-start: 1px solid $menu-border-color;
+                    transition: left .6s;
+
+                    &.expanded{
+                        left: $edit-tool-sidebar-width;
+                    }
+                }
+
+                .tool-list {
+                    padding-block: 18px 12px;
+                    z-index: 50;
+                    background-color: #fff;
+
+                    li {
+                        width: 42px;
+                        height: 54px;
+                        margin-inline: 9px;
+
+                        .add-el-btn {
+                            border: none;
+                            width: 42px;
+                            height: 42px;
+                            border-radius: 50%;
+                            background-color: transparent;
+                            cursor: pointer;
+
+                            svg {
+                                background: none;
+
+                                >g {
+
+                                    path {
+                                        fill: $easy-black;
+                                    }
+
+                                    rect {
+                                        fill: #fff;
+                                    }
+                                }
+                            }
+
+                            &:hover {
+                                background-color: $element-bg-blue;
+
+                                svg {
+                                    >g {
+                                        path {
+
+                                            fill: $element-blue;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

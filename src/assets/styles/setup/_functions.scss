@@ -1,0 +1,101 @@
+@function rem($size) {
+  $remSize: calc($size / 16px);
+  @return calc($remSize) * 1rem;
+}
+
+@function em($pixels, $context: 16px) {
+  @return calc($pixels/$context) * 1em;
+}
+
+@function lh($pixels, $context: 16px) {
+  @return calc($pixels/$context);
+}
+
+@function set-text-color($color) {
+  @if (lightness($color) >50) {
+    @return #000;
+  } @else {
+    @return #fff;
+  }
+}
+
+// Trigonometry Functions
+@function pi() {
+  @return 3.14159265359;
+}
+
+@function pow($base, $exp) {
+  $value: $base;
+
+  @if $exp >1 {
+      @for $i from 2 through $exp {
+          $value: $value * $base;
+      }
+  }
+
+  @if $exp < 1 {
+      @for $i from 0 through -$exp {
+          $value: calc($value / $base);
+      }
+  }
+
+  @return $value;
+}
+
+
+@function fact($num) {
+  $fact: 1;
+
+  @if $num >0 {
+      @for $i from 1 through $num {
+          $fact: $fact * $i;
+      }
+  }
+
+  @return $fact;
+}
+
+@function rad($angle) {
+  $unit: unit($angle);
+  $unitless: calc($angle / ($angle * 0 + 1));
+
+  // If the angle has 'deg' as unit, convert to radians.
+  @if $unit ==deg {
+      $unitless: $unitless / 180 * pi();
+  }
+
+  @return $unitless;
+}
+
+@function cos($angle) {
+  $cos: 0;
+  $angle: rad($angle);
+
+  // Iterate a bunch of times.
+  @for $i from 0 through 10 {
+      $cos: calc($cos + pow(-1, $i) * pow($angle, 2 * $i) / fact(2 * $i));
+  }
+
+  @return $cos;
+}
+
+@function calcRgbaColor($index, $leftSide, $number, $from-r, $from-g, $from-b, $to-r, $to-g, $to-b, $alpha: 1) {
+  $add : $index + 1;
+
+  @if $leftSide ==true {
+      $add : $index - 1;
+  }
+
+  $diff-r: calc($to-r - $from-r);
+  $diff-g: calc($to-g - $from-g);
+  $diff-b: calc($to-b - $from-b);
+
+  $step-r: calc($diff-r / ($number - 1));
+  $step-g: calc($diff-g / ($number - 1));
+  $step-b: calc($diff-b / ($number - 1));
+
+  $r: calc($step-r * $add + $from-r);
+  $g: calc($step-g * $add + $from-g);
+  $b: calc($step-b * $add + $from-b);
+  @return rgba($r, $g, $b, $alpha);
+}

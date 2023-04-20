@@ -1,0 +1,289 @@
+.wap-edit-page {
+    .page-container {
+
+        .wap-edit-page {
+
+            &__page {
+
+                .section-wrapper {
+
+                    @include hover-supported() {
+
+                        .overlay-hovered {
+                            opacity: 1;
+                        }
+
+                        .overlay-hovered,
+                        .overlay-selected {
+
+                            .options {
+                                .resize-btn ,
+                                .add-section-btn{
+                                    display: block;
+                                }
+                            }
+                        }
+
+                        .dashed-background {
+                            opacity: 1 !important;
+                        }
+                    }
+
+                    .overlay-hovered,
+                    .overlay-selected {
+                        pointer-events: none;
+
+                        .options {
+                            height: 100%;
+
+                            .add-section-btn {
+                                pointer-events: all;
+                                left: 50%;
+                                transform: translate(-50%, calc(-50% - 2px));
+                                @include pill();
+                                font-size: 1rem;
+                                font-weight: 100;
+                                border: none;
+                                color: #fff;
+                                padding: 5px 15px;
+                                cursor: pointer;
+                                z-index: 15;
+                                display: none;
+                                background-color: $selected-section-border-color;
+
+                                @include hover-supported() {
+                                    background-color: darken($selected-section-border-color, 5%);
+                                }
+                            }
+
+                            .resize-btn {
+                                pointer-events: all;
+                                display: none;
+                                z-index: 24;
+                                color: #fff;
+                                font-size: 1.2em;
+                                border: none;
+                                cursor: ns-resize;
+                                box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+                                bottom: 0px;
+                                transform: translateY(50%);
+                                padding: 2px 12px;
+                                border-radius: 4px;
+                                left: calc(50% + 200px)
+                            }
+
+                            .section-title {
+                                bottom: 100%;
+                                right: 0;
+                                z-index: 1;
+                                color: #fff;
+                                padding: 5px 8px;
+                            }
+                        }
+
+                        &.section {
+                            .options {
+                                .resize-btn {
+                                    background-color: $selected-section-border-color;
+                                }
+                            }
+                        }
+
+                        &.header {
+                            .options {
+                                .resize-btn {
+                                    background-color: $selected-header-border-color;
+                                }
+                            }
+                        }
+
+                        &.footer {
+                            .options {
+                                .resize-btn {
+                                    background-color: $selected-footer-border-color;
+                                }
+                            }
+                        }
+
+                        .dashed-background {
+                            height: 100%;
+                            width: 100vw;
+                            z-index: -1;
+                            opacity: 0;
+
+                            &:before,
+                            &:after {
+                                content: "";
+                                width: 100%;
+                                height: 100%;
+                                position: absolute;
+                                background-image: linear-gradient(to right, black 50%, rgba(255, 255, 255, 0) 0%);
+                                background-size: 10px .5px;
+                                background-repeat: repeat-x;
+                                top: 0;
+                                // z-index: -1;
+                            }
+
+                            &:before {
+                                background-position: bottom;
+                            }
+
+                            &:after {
+                                background-position: top;
+                            }
+                        }
+                    }
+
+                    .overlay-hovered {
+                        // display: none;
+                        opacity: 0;
+
+
+                        &.section {
+                            .options {
+                                border: 3px solid $hovered-section-border-color;
+                                background-color: rgba($hovered-section-border-color, .4);
+
+                                .section-title {
+                                    background-color: $hovered-section-border-color;
+                                    color: $selected-section-border-color;
+                                }
+                            }
+
+                        }
+
+                        &.header {
+                            .options {
+                                border: 3px solid $hovered-header-border-color;
+                                background-color: rgba($hovered-header-border-color, .4);
+
+                                .section-title {
+                                    background-color: $hovered-header-border-color;
+                                    color: $selected-header-border-color;
+                                    bottom: unset;
+                                    top: 0;
+                                }
+                            }
+                        }
+
+                        &.footer {
+                            .options {
+                                border: 3px solid $hovered-footer-border-color;
+                                background-color: rgba($hovered-footer-border-color, .4);
+
+                                .section-title {
+                                    background-color: $hovered-footer-border-color;
+                                    color: $selected-footer-border-color;
+                                }
+                            }
+                        }
+                    }
+
+                    .overlay-selected {
+                        &.section {
+                            .options {
+                                border: 3px solid $selected-section-border-color;
+
+                                .section-title {
+                                    background-color: $selected-section-border-color;
+                                }
+
+                                .add-section-btn {
+                                    background-color: $selected-section-border-color;
+
+                                    @include hover-supported() {
+                                        background-color: darken($selected-section-border-color, 5%);
+                                    }
+                                }
+                            }
+                        }
+
+                        &.header {
+                            .options {
+                                border: 3px solid $selected-header-border-color;
+
+                                .section-title {
+                                    background-color: $selected-header-border-color;
+                                    bottom: unset;
+                                    top: 0;
+                                }
+                            }
+                        }
+
+                        &.footer {
+                            .options {
+                                border: 3px solid $selected-footer-border-color;
+
+                                .section-title {
+                                    background-color: $selected-footer-border-color;
+                                }
+                            }
+                        }
+                    }
+
+                    .wap-header,
+                    .wap-footer,
+                    .wap-section {}
+
+                    .wap-footer,
+                    .wap-header {
+                        &.dashed:before {
+                            content: "";
+                            width: 100%;
+                            height: 100%;
+                            display: block;
+                            background-image: linear-gradient(to right, black 50%, rgba(255, 255, 255, 0) 0%);
+                            background-size: 10px 1px;
+                            background-repeat: repeat-x;
+                        }
+                    }
+
+
+                    .wap-header {
+                        &.dashed:before {
+                            background-position: bottom;
+                        }
+                    }
+
+                    .wap-footer {
+                        &.dashed:before {
+                            background-position: top;
+                        }
+                    }
+                }
+            }
+
+            &__overlay {
+                width: calc(100% - $edit-panel-width);
+                // left: $edit-tool-sidebar-width;
+                min-height: 100%;
+                top: 0;
+                pointer-events: none;
+                z-index: 15;
+
+                .wap-overlay {
+                    width: 100%;
+
+                    .dashed-pseudo {
+                        height: 100%;
+                        background-image: linear-gradient(black 50%, rgba(255, 255, 255, 0) 0%);
+                        background-position: left;
+                        background-size: 1px 10px;
+                        background-repeat: repeat-y;
+
+                        &:before {
+                            content: '';
+                            display: block;
+                            width: 100%;
+                            height: 100%;
+                            background-image: linear-gradient(black 50%, rgba(255, 255, 255, 0) 0%);
+                            background-position: right;
+                            background-size: 1px 10px;
+                            background-repeat: repeat-y;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

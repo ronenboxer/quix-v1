@@ -1,0 +1,137 @@
+.wap-edit-page {
+
+    .page-container {
+
+        .wap-edit-page {
+
+            &__tool-sidebar {
+
+                .el-menu {
+                    user-select:none;
+                    * {
+                        color: $text-black;
+                    }
+
+                    &:has(.elements):not(.expanded) {
+                        left: -587px;
+                    }
+
+                    .menu-instance {
+                        .header {
+                            padding-inline: 24px 9px;
+                            height: 55px;
+                            font-size: rem(16px);
+                            line-height: 1.5;
+                            border-bottom: 1px solid $menu-border-color;
+
+
+                            .menu-title {
+                                font-size: inherit;
+                                line-height: inherit;
+                            }
+
+                            .menu-options {
+                                gap: 3px;
+
+                                label {
+                                    cursor: pointer;
+
+                                    span {
+                                        font-size: rem(14px);
+                                        line-height: calc(18 / 14);
+                                    }
+
+                                    @include hover-supported() {
+                                        * {
+                                            color: $element-blue;
+                                        }
+                                    }
+                                }
+
+                                button {
+                                    width: 30px;
+                                    height: 30px;
+                                    @include round-btn()
+                                }
+                            }
+                        }
+
+                        .menu-content {
+
+                            .el-kinds-list {
+                                padding-block: 12px;
+                                background-color: $easy-gray-background;
+                                border-inline-end: 1px solid $menu-border-color;
+                                width: 162px;
+
+                                .el-kind {
+                                    padding-inline: 12px;
+
+                                    .el-kind-title {
+                                        padding-inline: 12px;
+                                        @include menu-item();
+                                    }
+                                }
+                            }
+
+                            .el-categories-list {
+                                padding-block: 12px;
+                                border-inline-end: 1px solid $menu-border-color;
+                                width: 132px;
+
+                                .el-categories-item {
+                                    padding-inline: 12px;
+
+                                    .el-categories-item-title {
+                                        padding-inline: 12px;
+                                        @include menu-item();
+
+                                    }
+                                }
+                            }
+
+                            .items-lists {
+                                width: 352px;
+
+                                .category-items {
+                                    margin-inline: 14px;
+                                    padding-top: 3px;
+                                    margin-top: 19px;
+
+                                    .category-title {
+                                        margin: 0 10px 5px;
+                                        padding-bottom: 7px;
+                                        border-bottom: 1px solid $menu-border-color;
+                                    }
+
+                                    .el-items-list {
+                                        margin-top: 29px;
+
+                                        @include hover-supported() {
+                                            * {
+                                                color: $menu-item-hover-color;
+                                            }
+                                        }
+
+                                        .item-preview {
+                                            margin-bottom: 14px;
+                                            margin-inline-start: 14px;
+                                            cursor: pointer;
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+
+                        &.elements {
+                            border-top: 6px solid $element-blue;
+
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

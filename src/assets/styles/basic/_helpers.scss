@@ -1,0 +1,362 @@
+// Flex
+.flex {
+	display: flex;
+}
+
+.flex.column {
+	flex-direction: column;
+}
+
+.flex.inline-flex {
+	display: inline-flex;
+}
+
+.align-self-center {
+	align-self: center;
+}
+
+.self-end {
+	align-self: flex-end;
+}
+
+.flex.center {
+	justify-content: center;
+	align-items: center;
+}
+
+.flex.items-center {
+	align-items: center;
+}
+
+.flex.justify-center {
+	justify-content: center;
+}
+
+.flex.justify-end {
+	justify-content: flex-end;
+}
+
+.flex.between {
+	justify-content: space-between;
+}
+
+.flex.evenly {
+	justify-content: space-evenly;
+}
+
+.flex.around {
+	justify-content: space-around;
+}
+
+.grow {
+	&-0 {
+		flex-grow: 0;
+	}
+
+	&-1 {
+		flex-grow: 1;
+	}
+
+	&-2 {
+		flex-grow: 2;
+	}
+
+	&-3 {
+		flex-grow: 3;
+	}
+
+	&-4 {
+		flex-grow: 4;
+	}
+
+	&-5 {
+		flex-grow: 5;
+	}
+
+	&-6 {
+		flex-grow: 6;
+	}
+}
+
+.shrink {
+	&-0 {
+		flex-shrink: 0;
+	}
+	&-1 {
+		flex-shrink: 1;
+	}
+
+	&-2 {
+		flex-shrink: 2;
+	}
+
+	&-3 {
+		flex-shrink: 3;
+	}
+
+	&-4 {
+		flex-shrink: 4;
+	}
+
+	&-5 {
+		flex-shrink: 5;
+	}
+
+	&-6 {
+		flex-shrink: 6;
+	}
+}
+
+// List
+.clean-list {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+// Text
+.vertical-text {
+	writing-mode: tb-rl;
+	transform: rotate(-180deg);
+}
+
+.tag-text {
+	// color: $clr1;
+	text-transform: uppercase;
+	@include type(boldCondensed);
+}
+
+.fs12 {
+	font-size: rem(12px);
+}
+
+.fs14 {
+	font-size: rem(14px);
+}
+
+.fs18 {
+	font-size: rem(18px);
+}
+
+.fs20 {
+	font-size: rem(20px);
+}
+
+.fs24 {
+	font-size: rem(24px);
+}
+
+.fs28 {
+	font-size: rem(28px);
+}
+
+.fs30 {
+	font-size: rem(30px);
+}
+
+.text-center {
+	text-align: center;
+}
+
+.capitalize {
+	text-transform: capitalize
+}
+
+.upper {
+	text-transform: uppercase;
+}
+
+.lower {
+	text-transform: lowercase;
+}
+
+// Aspect ratios
+
+.ratio-16-9 {
+	@include aspect-ratio(100, 56);
+}
+
+.ratio-square {
+	@include aspect-ratio(100, 100);
+}
+
+.ratio-card {
+	@include aspect-ratio(100, 80);
+}
+
+.ratio-poster {
+	@include aspect-ratio(100, 150);
+}
+
+.p {
+	&-1 {
+		padding: 0.5rem;
+	}
+
+	&-2 {
+		padding: 1rem;
+	}
+
+	&-3 {
+		padding: 2rem;
+	}
+
+	&-4 {
+		padding: 4rem;
+	}
+}
+
+.px {
+	&-1 {
+		padding-inline: 0.5rem;
+	}
+
+	&-2 {
+		padding-inline: 1rem;
+	}
+
+	&-3 {
+		padding-inline: 2rem;
+	}
+
+	&-4 {
+		padding-inline: 4rem;
+	}
+}
+
+.py {
+	&-1 {
+		padding-block: 0.5rem;
+	}
+
+	&-2 {
+		padding-block: 1rem;
+	}
+
+	&-3 {
+		padding-block: 2rem;
+	}
+
+	&-4 {
+		padding-block: 4rem;
+	}
+}
+
+.m {
+	&-1 {
+		margin: 0.5rem;
+	}
+
+	&-2 {
+		margin: 1rem;
+	}
+
+	&-3 {
+		margin: 2rem;
+	}
+
+	&-4 {
+		margin: 4rem;
+	}
+}
+
+.mx {
+	&-1 {
+		margin-inline: 0.5rem;
+	}
+
+	&-2 {
+		margin-inline: 1rem;
+	}
+
+	&-3 {
+		margin-inline: 2rem;
+	}
+
+	&-4 {
+		margin-inline: 4rem;
+	}
+}
+
+.my {
+	&-1 {
+		margin-block: 0.5rem;
+	}
+
+	&-2 {
+		margin-block: 1rem;
+	}
+
+	&-3 {
+		margin-block: 2rem;
+	}
+
+	&-4 {
+		margin-block: 4rem;
+	}
+}
+
+// Grid
+
+.grid {
+	display: grid;
+}
+
+.gap-1 {
+	gap: 0.5rem;
+}
+
+.gap-2 {
+	gap: 1rem;
+}
+
+.gap-3 {
+	gap: 2rem;
+}
+
+.gap-4 {
+	gap: 4rem;
+}
+
+// Inline/Block
+
+.block {
+	display: block;
+}
+
+.inline-block {
+	display: inline-block;
+}
+
+.inline {
+	display: inline;
+}
+
+// Position 
+
+.absolute {
+	position: absolute;
+}
+
+.relative {
+	position: relative;
+}
+
+.fixed {
+	position: fixed;
+}
+
+.sticky {
+	position: sticky;
+}
+
+.absolute,
+.relative,
+.fixed,
+.sticky {
+	&.center:not(.flex) {
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+}
